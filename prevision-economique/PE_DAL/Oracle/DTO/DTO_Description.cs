@@ -43,16 +43,4 @@ public record DTO_Description
         Note = note;
     }
 
-    /*public override string ToString() =>
-        $"IdTableau: {IdTableau}, " +
-        $"Position: {Position}, " +
-        $"Niveau: {Niveau}, " +
-        $"Mnemonic: {Mnemonic}, " +
-        $"Description: {DescriptionTexte}, " +
-        $"Ligne1Tableau: {Ligne1Tableau}, " +
-        $"Ligne3NiveauSpec: {Ligne3NiveauSpec}, " +
-        $"Ligne4PchCont: {Ligne4PchCont}, " +
-        $"Variation: {Variation}, " +
-        $"Decimale: {Decimale}, " +
-        $"Note: {Note}";*/
 }

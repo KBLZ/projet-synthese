@@ -1,5 +1,11 @@
-﻿namespace PE_DAL;
+﻿using PrevisionEconomique.Entites.Interface;
 
-public class Manipulation_Oracle
+namespace PE_DAL;
+
+public class Manipulation_Oracle : IManipulation
 {
+    public T LireDonnees<T>(string parametre = null)
+    {
+        throw new NotImplementedException();
+    }
 }

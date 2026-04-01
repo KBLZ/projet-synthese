@@ -1,12 +1,122 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A742BD9-D591-4FA3-9D6F-DBBECB56077D}|PE_Entites\\PE_Entites.csproj|c:\\projet synthese\\prevision-economique\\prevision-economique\\pe_entites\\interface\\imanipulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A742BD9-D591-4FA3-9D6F-DBBECB56077D}|PE_Entites\\PE_Entites.csproj|solutionrelative:pe_entites\\interface\\imanipulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|c:\\projet synthese\\prevision-economique\\prevision-economique\\pe_dal\\oracle\\repositories\\dto_descriptionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|solutionrelative:pe_dal\\oracle\\repositories\\dto_descriptionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|c:\\projet synthese\\prevision-economique\\prevision-economique\\pe_dal\\oracle\\manipulation_oracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|solutionrelative:pe_dal\\oracle\\manipulation_oracle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|c:\\projet synthese\\prevision-economique\\prevision-economique\\pe_dal\\oracle\\repositories\\dto_tableaurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|solutionrelative:pe_dal\\oracle\\repositories\\dto_tableaurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|c:\\projet synthese\\prevision-economique\\prevision-economique\\pe_dal\\oracle\\repositories\\dto_noterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|solutionrelative:pe_dal\\oracle\\repositories\\dto_noterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|c:\\projet synthese\\prevision-economique\\prevision-economique\\pe_dal\\oracle\\repositories\\dto_historiquerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82CDF52A-860C-4351-A6E1-E38C90E925B8}|PE_DAL\\PE_DAL.csproj|solutionrelative:pe_dal\\oracle\\repositories\\dto_historiquerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IManipulation.cs",
+              "DocumentMoniker": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_Entites\\Interface\\IManipulation.cs",
+              "RelativeDocumentMoniker": "PE_Entites\\Interface\\IManipulation.cs",
+              "ToolTip": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_Entites\\Interface\\IManipulation.cs",
+              "RelativeToolTip": "PE_Entites\\Interface\\IManipulation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T14:15:21.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DTO_TableauRepository.cs",
+              "DocumentMoniker": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_TableauRepository.cs",
+              "RelativeDocumentMoniker": "PE_DAL\\Oracle\\Repositories\\DTO_TableauRepository.cs",
+              "ToolTip": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_TableauRepository.cs",
+              "RelativeToolTip": "PE_DAL\\Oracle\\Repositories\\DTO_TableauRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T14:12:36.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DTO_NoteRepository.cs",
+              "DocumentMoniker": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_NoteRepository.cs",
+              "RelativeDocumentMoniker": "PE_DAL\\Oracle\\Repositories\\DTO_NoteRepository.cs",
+              "ToolTip": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_NoteRepository.cs",
+              "RelativeToolTip": "PE_DAL\\Oracle\\Repositories\\DTO_NoteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T14:09:16.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DTO_HistoriqueRepository.cs",
+              "DocumentMoniker": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_HistoriqueRepository.cs",
+              "RelativeDocumentMoniker": "PE_DAL\\Oracle\\Repositories\\DTO_HistoriqueRepository.cs",
+              "ToolTip": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_HistoriqueRepository.cs",
+              "RelativeToolTip": "PE_DAL\\Oracle\\Repositories\\DTO_HistoriqueRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T14:06:16.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DTO_DescriptionRepository.cs",
+              "DocumentMoniker": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_DescriptionRepository.cs",
+              "RelativeDocumentMoniker": "PE_DAL\\Oracle\\Repositories\\DTO_DescriptionRepository.cs",
+              "ToolTip": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Repositories\\DTO_DescriptionRepository.cs",
+              "RelativeToolTip": "PE_DAL\\Oracle\\Repositories\\DTO_DescriptionRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T14:03:34.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Manipulation_Oracle.cs",
+              "DocumentMoniker": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Manipulation_Oracle.cs",
+              "RelativeDocumentMoniker": "PE_DAL\\Oracle\\Manipulation_Oracle.cs",
+              "ToolTip": "C:\\PROJET SYNTHESE\\Prevision-economique\\prevision-economique\\PE_DAL\\Oracle\\Manipulation_Oracle.cs",
+              "RelativeToolTip": "PE_DAL\\Oracle\\Manipulation_Oracle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T19:11:17.273Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
