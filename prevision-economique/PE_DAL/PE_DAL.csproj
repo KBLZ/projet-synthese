@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -16,6 +16,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\PE_Entites\PE_Entites.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.21.121" />
+      <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.120" />
     </ItemGroup>
 
 </Project>
