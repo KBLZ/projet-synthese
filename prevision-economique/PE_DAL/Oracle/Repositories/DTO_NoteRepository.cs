@@ -1,31 +1,21 @@
 using System.Collections.Generic;
-using System.Data;
+using System.Linq;
 using PE_DAL.Oracle;
 
 namespace PE_DAL.Oracle.Repositories
 {
     public class DTO_NoteRepository
     {
-        private readonly Manipulation_Oracle _manipulation;
+        private readonly ProjectDbContext _context;
 
-        public DTO_NoteRepository(Manipulation_Oracle manipulation)
+        public DTO_NoteRepository(ProjectDbContext context)
         {
-            _manipulation = manipulation;
+            _context = context;
         }
 
         public List<DTO_Note> GetAll()
         {
-            var dt = _manipulation.LireDonnees<DataTable>("SELECT IDNOTE, TEXTENOTE FROM TPF_NOTE");
-            var list = new List<DTO_Note>();
-            foreach (DataRow row in dt.Rows)
-            {
-                list.Add(new DTO_Note
-                {
-                    IdNote = Convert.ToInt32(row["IDNOTE"]),
-                    TexteNote = row["TEXTENOTE"].ToString()
-                });
-            }
-            return list;
+            return _context.Notes.ToList();
         }
     }
 }

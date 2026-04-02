@@ -1,40 +1,63 @@
 ﻿
 using System;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using PE_DAL;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using PE_DAL.Oracle;
 using PE_DAL.Oracle.Repositories;
 
+var builder = Host.CreateApplicationBuilder(args);
+
 // Configuration
-var configuration = new ConfigurationBuilder()
+builder.Configuration
     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-    .Build();
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-string connectionString = configuration.GetConnectionString("OracleDb") ?? "";
+string connectionString = builder.Configuration.GetConnectionString("OracleDb") ?? "";
 
-Console.WriteLine("Tentative de connexion à la base de données Oracle...");
+// Dependency Injection
+builder.Services.AddDbContext<ProjectDbContext>(options =>
+    options.UseOracle(connectionString));
 
-try
+builder.Services.AddScoped<DTO_TableauRepository>();
+builder.Services.AddScoped<DTO_DescriptionRepository>();
+builder.Services.AddScoped<DTO_NoteRepository>();
+builder.Services.AddScoped<DTO_HistoriqueRepository>();
+
+using IHost host = builder.Build();
+
+// Entry point logic
+RunApp(host.Services);
+
+static void RunApp(IServiceProvider services)
 {
-    var manipulationOracle = new Manipulation_Oracle(connectionString);
-    var tableauRepo = new DTO_TableauRepository(manipulationOracle);
+    using var scope = services.CreateScope();
+    var provider = scope.ServiceProvider;
 
-    Console.WriteLine("Récupération des tableaux...");
-    // Note: Cela échouera si la DB n'est pas accessible, mais le code est en place.
-    var tableaux = tableauRepo.GetAll();
+    Console.WriteLine("Tentative de connexion à la base de données Oracle via EF Core...");
 
-    Console.WriteLine($"Nombre de tableaux trouvés : {tableaux.Count}");
-    foreach (var tab in tableaux)
+    try
     {
-        Console.WriteLine($"- {tab.IdTableau}: {tab.TitreTableau}");
+        var tableauRepo = provider.GetRequiredService<DTO_TableauRepository>();
+
+        Console.WriteLine("Récupération des tableaux...");
+        // Note: Cela échouera si la DB n'est pas accessible, mais le code est en place.
+        var tableaux = tableauRepo.GetAll();
+
+        Console.WriteLine($"Nombre de tableaux trouvés : {tableaux.Count}");
+        foreach (var tab in tableaux)
+        {
+            Console.WriteLine($"- {tab.IdTableau}: {tab.TitreTableau}");
+        }
     }
-}
-catch (Exception ex)
-{
-    Console.WriteLine($"Erreur lors de la connexion ou de la récupération des données : {ex.Message}");
-    if (ex.InnerException != null)
+    catch (Exception ex)
     {
-        Console.WriteLine($"Détails : {ex.InnerException.Message}");
+        Console.WriteLine($"Erreur lors de la connexion ou de la récupération des données : {ex.Message}");
+        if (ex.InnerException != null)
+        {
+            Console.WriteLine($"Détails : {ex.InnerException.Message}");
+        }
     }
 }

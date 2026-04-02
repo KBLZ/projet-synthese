@@ -16,6 +16,10 @@ public record DTO_Description
 
     public DTO_Description() { }
 
+    // Virtual to allow EF proxy if needed, though not strictly required for this setup
+    public virtual DTO_Tableau? Tableau { get; init; }
+    public virtual DTO_Note? NoteNavigation { get; init; }
+
     public DTO_Description(
         int idTableau,
         int position,
