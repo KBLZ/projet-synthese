@@ -2,17 +2,17 @@
 
 public record DTO_Description
 {
-    public int IdTableau { get; init; }
-    public int Position { get; init; }
-    public int Niveau { get; init; }
-    public string Mnemonic { get; init; } = string.Empty;
-    public string DescriptionTexte { get; init; } = string.Empty;
-    public string Ligne1Tableau { get; init; } = string.Empty;
-    public string Ligne3NiveauSpec { get; init; } = string.Empty;
-    public string Ligne4PchCont { get; init; } = string.Empty;
-    public int Variation { get; init; }
-    public int Decimale { get; init; }
-    public int Note { get; init; }
+    public int ?IdTableau { get; init; }
+    public int ?Position { get; init; }
+    public int ?Niveau { get; init; }
+    public string ?Mnemonic { get; init; } = string.Empty;
+    public string ?DescriptionTexte { get; init; } = string.Empty;
+    public string ?Ligne1Tableau { get; init; } = string.Empty;
+    public string ?Ligne3NiveauSpec { get; init; } = string.Empty;
+    public string ?Ligne4PchCont { get; init; } = string.Empty;
+    public int ?Variation { get; init; }
+    public int ?Decimale { get; init; }
+    public int ?Note { get; init; }
 
     public DTO_Description() { }
 

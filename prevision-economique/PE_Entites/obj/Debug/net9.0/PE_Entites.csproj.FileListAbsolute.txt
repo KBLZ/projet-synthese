@@ -1,0 +1,12 @@
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\bin\Debug\net9.0\PE_Entites.deps.json
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\bin\Debug\net9.0\PE_Entites.dll
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\bin\Debug\net9.0\PE_Entites.pdb
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\PE_Entites.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\PE_Entites.AssemblyInfoInputs.cache
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\PE_Entites.AssemblyInfo.cs
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\PE_Entites.csproj.CoreCompileInputs.cache
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\PE_Entites.sourcelink.json
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\PE_Entites.dll
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\refint\PE_Entites.dll
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\PE_Entites.pdb
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_Entites\obj\Debug\net9.0\ref\PE_Entites.dll

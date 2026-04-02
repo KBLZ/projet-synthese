@@ -2,17 +2,21 @@ namespace PE_DAL.Oracle;
 
 public record DTO_Historique
 {
-    public int IdUtilisateur { get; init; }
+    public string IdUtilisateur { get; init; } = string.Empty; 
+
     public string ChoixPRN { get; init; } = string.Empty;
     public string UrlBanque1 { get; init; } = string.Empty;
     public string UrlBanque2 { get; init; } = string.Empty;
+
     public int AnneeDebut { get; init; }
     public int TrimDebut { get; init; }
     public int IndexTitreTab { get; set; }
-    public int ModeAffichage  { get; set; }
-    
+    public int ModeAffichage { get; set; }
+
+    public DTO_Historique() { }
+
     public DTO_Historique(
-        int idUtilisateur,
+        string idUtilisateur,
         string choixPRN,
         string urlBanque1,
         string urlBanque2,
@@ -20,7 +24,7 @@ public record DTO_Historique
         int trimDebut,
         int indexTitreTab,
         int modeAffichage
-    ) 
+    )
     {
         this.IdUtilisateur = idUtilisateur;
         this.ChoixPRN = choixPRN;

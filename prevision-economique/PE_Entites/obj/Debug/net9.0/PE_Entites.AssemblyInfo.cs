@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PE_Entites")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d5795402588e193687dff84f5eb77fe9959cd93")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b228ea6acd2342dc2c5c6d23f8c16d0d0103e01e")]
 [assembly: System.Reflection.AssemblyProductAttribute("PE_Entites")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PE_Entites")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

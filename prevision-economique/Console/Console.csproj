@@ -8,8 +8,18 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\PE_Entites\PE_Entites.csproj" />
       <ProjectReference Include="..\PE_DAL\PE_DAL.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

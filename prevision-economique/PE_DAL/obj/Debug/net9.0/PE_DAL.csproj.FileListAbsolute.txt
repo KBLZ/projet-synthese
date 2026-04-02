@@ -1,0 +1,16 @@
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\bin\Debug\net9.0\PE_DAL.deps.json
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\bin\Debug\net9.0\PE_DAL.dll
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\bin\Debug\net9.0\PE_DAL.pdb
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\bin\Debug\net9.0\PE_Entites.dll
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\bin\Debug\net9.0\PE_Entites.pdb
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.csproj.AssemblyReference.cache
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.AssemblyInfoInputs.cache
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.AssemblyInfo.cs
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.csproj.CoreCompileInputs.cache
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.sourcelink.json
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.csproj.Up2Date
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.dll
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\refint\PE_DAL.dll
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\PE_DAL.pdb
+C:\PROJET SYNTHESE\Prevision-economique\prevision-economique\PE_DAL\obj\Debug\net9.0\ref\PE_DAL.dll
