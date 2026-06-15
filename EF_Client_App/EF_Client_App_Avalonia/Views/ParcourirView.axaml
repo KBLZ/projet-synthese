@@ -1,0 +1,232 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:AvaloniaApplication1.ViewModels"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="AvaloniaApplication1.Views.ParcourirView"
+			 x:DataType="vm:ParcourirViewModel">
+
+	<Grid RowDefinitions="*, Auto">
+
+		<!-- CONTENU -->
+		<ScrollViewer Grid.Row="0">
+			<StackPanel Margin="40" Spacing="20">
+
+				<!-- Titre -->
+				<TextBlock Text="Choisissez un fichier :"
+						   FontSize="22"
+						   FontWeight="SemiBold"
+						   Margin="0,0,0,10"/>
+
+				<!-- MODE SIMPLE : Prévision -->
+				<StackPanel Spacing="15" IsVisible="{Binding !EstComparaison}">
+					<TextBlock Text="{Binding TitreSection}"
+							   FontSize="16"
+							   FontWeight="SemiBold"
+							   Foreground="#2B579A"/>
+
+					<!-- Barre chemin + bouton Parcourir -->
+					<Grid ColumnDefinitions="*, Auto">
+						<TextBox Grid.Column="0"
+								 Text="{Binding CheminFichierSelectionne}"
+								 IsReadOnly="True"
+								 Background="White"
+								 Watermark="Aucun fichier selectionné..."
+								 VerticalContentAlignment="Center"/>
+
+						<Button Grid.Column="1" Width="225" Height="40"
+								HorizontalContentAlignment="Center"
+								Margin="10,0,0,0"
+								Click="btn_Parcourir_Click">
+							<StackPanel Orientation="Horizontal" >
+								<!-- L'icône -->
+								<Image Source="/Assets/Parcourir.png"
+									   Width="33" Height="33"
+									   VerticalAlignment="Center"/>
+								<!-- Le texte -->
+								<TextBlock Text="Parcourir"
+										   VerticalAlignment="Center"
+										   Margin="7,0,0,0"/>
+							</StackPanel>
+						</Button>
+					</Grid>
+
+					<!-- Année début (mode simple) -->
+					<StackPanel Orientation="Horizontal" Spacing="10">
+						<TextBlock Text="Année début : "
+								   FontSize="13"
+								   Foreground="Gray"
+								   VerticalAlignment="Center"/>
+						<ComboBox Width="100"
+								  IsEditable="True"
+								  Text="{Binding AnneeDebut}"
+								  Background="White"
+								  PlaceholderText="{Binding AnneePlaceholder}"/>
+					</StackPanel>
+
+					<!-- Nom du fichier selectionne -->
+					<StackPanel Orientation="Horizontal" Spacing="8"
+								IsVisible="{Binding FichierSelectionne, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+						<TextBlock Text="Fichier selectionné :"
+								   FontSize="13"
+								   Foreground="Gray"
+								   VerticalAlignment="Center"/>
+						<TextBlock Text="{Binding FichierSelectionne}"
+								   FontSize="13"
+								   FontWeight="Bold"
+								   VerticalAlignment="Center"/>
+					</StackPanel>
+				</StackPanel>
+
+				<!-- MODE COMPARAISON : 2 colonnes -->
+				<Grid ColumnDefinitions="*, 40, *" IsVisible="{Binding EstComparaison}">
+
+					<!-- Colonne gauche : Prévision -->
+					<StackPanel Grid.Column="0" Spacing="15">
+						<TextBlock Text="Prévision"
+								   FontSize="16"
+								   FontWeight="SemiBold"
+								   Foreground="#2B579A"/>
+						<Grid ColumnDefinitions="*, Auto">
+							<TextBox Grid.Column="0"
+									 Text="{Binding CheminGaucheSelectionne}"
+									 IsReadOnly="True"
+									 Background="White"
+									 Watermark="Aucun fichier selectionné..."
+									 VerticalContentAlignment="Center"/>
+
+							<Button Grid.Column="1" Width="225" Height="40"
+									HorizontalContentAlignment="Center"
+									Margin="10,0,0,0"
+									Click="btn_ParcourirGauche_Click">
+								<StackPanel Orientation="Horizontal" >
+									<!-- L'icône -->
+									<Image Source="/Assets/Parcourir.png"
+										   Width="33" Height="33"
+										   VerticalAlignment="Center"/>
+									<!-- Le texte -->
+									<TextBlock Text="Parcourir"
+											   VerticalAlignment="Center"
+											   Margin="7,0,0,0"/>
+								</StackPanel>
+							</Button>
+						</Grid>
+
+						<!-- Année début (colonne gauche comparaison) -->
+						<StackPanel Orientation="Horizontal" Spacing="10">
+							<TextBlock Text="Année début : "
+									   FontSize="13"
+									   Foreground="Gray"
+									   VerticalAlignment="Center"/>
+							<ComboBox Width="100"
+									  IsEditable="True"
+									  Text="{Binding AnneeDebut}"
+									  Background="White"
+									  PlaceholderText="{Binding AnneePlaceholder}"/>
+						</StackPanel>
+
+						<StackPanel Orientation="Horizontal" Spacing="8"
+									IsVisible="{Binding FichierGaucheSelectionne, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+							<TextBlock Text="Fichier selectionné :"
+									   FontSize="13"
+									   Foreground="Gray"
+									   VerticalAlignment="Center"/>
+							<TextBlock Text="{Binding FichierGaucheSelectionne}"
+									   FontSize="13"
+									   FontWeight="Bold"
+									   VerticalAlignment="Center"/>
+						</StackPanel>
+					</StackPanel>
+
+					<!-- Separateur vertical -->
+					<Rectangle Grid.Column="1"
+							   Width="1"
+							   Fill="LightGray"
+							   VerticalAlignment="Stretch"
+							   HorizontalAlignment="Center"/>
+
+					<!-- Colonne droite : Comparaison -->
+					<StackPanel Grid.Column="2" Spacing="15">
+						<TextBlock Text="Comparaison"
+								   FontSize="16"
+								   FontWeight="SemiBold"
+								   Foreground="#2B579A"/>
+						<Grid ColumnDefinitions="*, Auto">
+							<TextBox Grid.Column="0"
+									 Text="{Binding CheminDroiteSelectionne}"
+									 IsReadOnly="True"
+									 Background="White"
+									 Watermark="Aucun fichier selectionné..."
+									 VerticalContentAlignment="Center"/>
+
+							<Button Grid.Column="1" Width="225" Height="40"
+									HorizontalContentAlignment="Center"
+									Margin="10,0,0,0"
+									Click="btn_ParcourirDroite_Click">
+								<StackPanel Orientation="Horizontal" >
+									<!-- L'icône -->
+									<Image Source="/Assets/Parcourir.png"
+										   Width="33" Height="33"
+										   VerticalAlignment="Center"/>
+									<!-- Le texte -->
+									<TextBlock Text="Parcourir"
+											   VerticalAlignment="Center"
+											   Margin="7,0,0,0"/>
+								</StackPanel>
+							</Button>
+						</Grid>
+						<StackPanel Orientation="Horizontal" Spacing="8"
+									IsVisible="{Binding FichierDroiteSelectionne, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+							<TextBlock Text="Fichier selectionné :"
+									   FontSize="13"
+									   Foreground="Gray"
+									   VerticalAlignment="Center"/>
+							<TextBlock Text="{Binding FichierDroiteSelectionne}"
+									   FontSize="13"
+									   FontWeight="Bold"
+									   VerticalAlignment="Center"/>
+						</StackPanel>
+					</StackPanel>
+				</Grid>
+
+			</StackPanel>
+		</ScrollViewer>
+
+		<!-- BOUTONS FIXES EN BAS -->
+		<Border Grid.Row="1" Padding="40,15">
+			<Grid ColumnDefinitions="Auto, *, Auto">
+				<Button Grid.Column="0" Width="225" Height="40"
+						HorizontalContentAlignment="Center"
+						Click="btn_RetourAccueil_Click">
+					<StackPanel Orientation="Horizontal" >
+						<!-- L'icône -->
+						<Image Source="/Assets/Retour_Accueil.png"
+							   Width="33" Height="33"
+							   VerticalAlignment="Center"/>
+						<!-- Le texte -->
+						<TextBlock Text="Retour à l'accueil"
+								   VerticalAlignment="Center"
+								   Margin="7,0,0,0"/>
+					</StackPanel>
+				</Button>
+
+				<Button Grid.Column="2" Width="225" Height="40"
+						HorizontalContentAlignment="Center"
+						Click="btn_Valider_Click">
+					<StackPanel Orientation="Horizontal" >
+						<!-- L'icône -->
+						<Image Source="/Assets/Valider.png"
+							   Width="33" Height="33"
+							   VerticalAlignment="Center"/>
+						<!-- Le texte -->
+						<TextBlock Text="Valider"
+								   VerticalAlignment="Center"
+								   Margin="7,0,0,0"/>
+					</StackPanel>
+				</Button>
+
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

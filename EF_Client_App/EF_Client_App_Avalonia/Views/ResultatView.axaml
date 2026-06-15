@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaloniaApplication1.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+             x:Class="AvaloniaApplication1.Views.ResultatView"
+             x:DataType="vm:ResultatViewModel">
+
+    <UserControl.Styles>
+        <Style Selector="DataGridRow:nth-child(even)">
+            <Setter Property="Background" Value="#F4F4F4" />
+        </Style>
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="Auto, *">
+        <!-- HEADER EN HAUT DE LA GRILLE -->
+        <Grid Grid.Row="0" Margin="10,8" Height="30">
+            <!-- Titre du tableau sélectionné -->
+            <TextBlock Text="{Binding SelectedArrayTitle}" 
+                       VerticalAlignment="Center" 
+                       FontSize="16" FontWeight="Bold" Foreground="#2A4A6A" TextWrapping="Wrap" />
+        </Grid>
+
+
+        <!-- GRILLE DE DONNÉES -->
+        <DataGrid x:Name="ResultsDataGrid"
+                  Grid.Row="1"
+                  ItemsSource="{Binding Descriptions}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  GridLinesVisibility="All"
+                  BorderThickness="1"
+                  BorderBrush="LightGray"
+                  HeadersVisibility="Column"
+                  RowBackground="White">
+            <DataGrid.Columns>
+                <!-- Fixed Description Column -->
+                <DataGridTextColumn Header="Description" 
+                                    Binding="{Binding FormattedDescription}" 
+                                    Width="350" />
+                <!-- Dynamic columns will be added in code-behind -->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

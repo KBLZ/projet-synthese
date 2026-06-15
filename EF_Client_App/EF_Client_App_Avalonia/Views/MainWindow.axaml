@@ -1,0 +1,337 @@
+<Window xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:vm="using:AvaloniaApplication1.ViewModels"
+		xmlns:views="using:AvaloniaApplication1.Views"
+		xmlns:entity="using:EF_Client_App_Entity"
+		x:Class="AvaloniaApplication1.Views.MainWindow"
+		x:DataType="vm:MainWindowViewModel"
+		Title="Tableaux de prévisions - MFQ"
+		FontFamily="Georgia"
+		WindowState="Maximized"
+		MinWidth="1280"
+		MinHeight="720">
+
+	<Window.Resources>
+		<!-- Style pour le bouton de mode actif -->
+		<Style x:Key="BoutonModeActif" Selector="Button.actif">
+			<Setter Property="BorderBrush" Value="#FFD700"/>
+			<Setter Property="BorderThickness" Value="3"/>
+			<Setter Property="Background" Value="#5A7FAA"/>
+		</Style>
+	</Window.Resources>
+
+	<Grid ColumnDefinitions="19*, 5*" RowDefinitions="Auto, *, 175">
+
+		<!-- HEADER AVEC DÉGRADÉ -->
+		<Border Grid.Row="0" Grid.ColumnSpan="1" Height="175">
+			<Border.Background>
+				<LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+					<GradientStop Offset="0" Color="#E8E8E8" />
+					<GradientStop Offset="1" Color="#B0B0B0" />
+				</LinearGradientBrush>
+			</Border.Background>
+
+			<Grid ColumnDefinitions="Auto, *, Auto">
+				<!-- Logo -->
+				<Image Grid.Column="0" Source="/Assets/LogoMFQ.png" Width="175" Margin="20"/>
+
+				<!-- Titres Dynamiques -->
+				<StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<TextBlock Text="{Binding TypeRecherche}" FontSize="28" Foreground="#333" TextBlock.HorizontalAlignment="Center"/>
+
+					<!-- Ligne avec icône user + nom utilisateur -->
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+						<Ellipse Width="80" Height="80" Margin="0,0,8,0" VerticalAlignment="Center">
+							<Ellipse.Fill>
+								<ImageBrush Source="{Binding PhotoUtilisateur}" Stretch="UniformToFill"/>
+							</Ellipse.Fill>
+						</Ellipse>
+
+						<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+							<Run Text="Bonjour " FontSize="20" />
+							<Run Text="{Binding Tableau}"
+								 FontSize="28" FontFamily="{StaticResource PoliceMonotypeCorsiva}"
+								 FontStyle="Italic" Foreground="#284C8A"/>
+							<Run Text=" !" FontSize="20"/>
+						</TextBlock>
+					</StackPanel>
+
+					<TextBlock FontSize="18"
+							   Margin="0,5,0,0"
+							   HorizontalAlignment="Center"
+							   IsVisible="{Binding Banque1, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+						<Run Text="Banque 1 : " FontStyle="Normal"/>
+						<Run Text="{Binding Banque1}" FontStyle="Italic"/>
+					</TextBlock>
+
+					<TextBlock FontSize="18"
+							   Margin="0,5,0,0"
+							   HorizontalAlignment="Center"
+							   IsVisible="{Binding Banque2, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+						<Run Text="Banque 2 : " FontStyle="Normal"/>
+						<Run Text="{Binding Banque2}" FontStyle="Italic"/>
+					</TextBlock>
+				</StackPanel>
+
+				<!-- Boutons de droite -->
+				<StackPanel Grid.Column="2" Margin="0,10,10,10" Spacing="15" VerticalAlignment="Center" IsVisible="{Binding !IsAccueil}">
+
+					<Button Width="250"
+							HorizontalContentAlignment="Center"
+							VerticalContentAlignment="Center"
+							Command="{Binding SetModeTrimestrielCommand}"
+							Classes.actif="{Binding EstModeTrimestriel}">
+						<StackPanel Orientation="Horizontal" >
+							<!-- L'icône -->
+							<Image Source="/Assets/Trimestre.png"
+								   Width="30" Height="30" Margin="24,0,0,0"/>
+							<!-- Le texte -->
+							<TextBlock Text="Trimestriel"
+									   Margin="10"/>
+						</StackPanel>
+					</Button>
+
+					<Button Width="250"
+							HorizontalContentAlignment="Center"
+							VerticalContentAlignment="Center"
+							Command="{Binding SetModeAnnuelCommand}"
+							Classes.actif="{Binding EstModeAnnuel}">
+						<StackPanel Orientation="Horizontal" >
+							<!-- L'icône -->
+							<Image Source="/Assets/Annuel.png"
+								   Width="30" Height="30"/>
+							<!-- Le texte -->
+							<TextBlock Text="Annuel"
+									   Margin="10"/>
+						</StackPanel>
+					</Button>
+
+					<Button Width="250"
+							HorizontalContentAlignment="Center"
+							VerticalContentAlignment="Center"
+							Command="{Binding SetModeTrimestrielAnnuelCommand}"
+							Classes.actif="{Binding EstModeTrimestrielAnnuel}">
+						<StackPanel Orientation="Horizontal" >
+							<!-- L'icône -->
+							<Image Source="/Assets/Trimestre.png"
+								   Width="30" Height="30"/>
+							<!-- Le texte -->
+							<TextBlock Text="Trimestriel / Annuel"
+									   Margin="10"/>
+							<!-- L'icône #2 -->
+							<Image Source="/Assets/Annuel.png"
+								   Width="30" Height="30"/>
+						</StackPanel>
+					</Button>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<!-- ZONE CENTRALE DYNAMIQUE (BODY) -->
+		<Border Grid.Row="1" Grid.Column="0"
+				Margin="10"
+				Background="White"
+				CornerRadius="15"
+				BoxShadow="2 2 15 0 #60000000">
+			<ContentControl Content="{Binding PageCourante}" />
+		</Border>
+
+		<!-- BARRE LATÉRALE BLEUE -->
+		<Border Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Background="#4A6A8A">
+
+			<ScrollViewer VerticalScrollBarVisibility="Auto"
+						  VerticalAlignment="Stretch"
+						  IsVisible="{Binding !IsAccueil}">
+
+				<!-- <ItemsControl ItemsSource="{Binding Arrays}" Margin="10,10,10,10"> -->
+				<ItemsControl ItemsSource="{Binding ListeDeTest}" Margin="10,10,10,10">
+					<ItemsControl.ItemTemplate>
+						<!-- <DataTemplate x:DataType="entity:Array"> -->
+						<DataTemplate x:DataType="vm:BoutonTableauDummy">
+							<Button HorizontalAlignment="Stretch"
+									MinWidth="300"
+									Margin="0,0,0,10"
+									HorizontalContentAlignment="Left"
+									VerticalContentAlignment="Center"
+									Foreground="Black"
+									Command="{Binding $parent[Window].DataContext.SelectArrayCommand}"
+									CommandParameter="{Binding}">
+
+								<Grid ColumnDefinitions="Auto, Auto, *">
+									<Image Grid.Column="0"
+										   Source="/Assets/Filtres.png"
+										   Width="32" Height="32"
+										   Margin="5,0,10,0"
+										   VerticalAlignment="Center"/>
+
+									<TextBlock Grid.Column="1"
+											   Text="{Binding Numero}"
+											   FontSize ="12"
+											   Margin="0,0,10,0"
+											   VerticalAlignment="Center"/>
+
+									<TextBlock Grid.Column="2"
+											   Text="{Binding Titre}"
+											   TextTrimming="CharacterEllipsis"
+											   VerticalAlignment="Center"/>
+								</Grid>
+							</Button>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</ScrollViewer>
+		</Border>
+
+
+		<!-- FOOTER BLEU - partie body -->
+		<Border Grid.Row="2" Grid.Column="0" Background="#4A6A8A" >
+			<Grid ColumnDefinitions="auto, auto, 1*, auto" IsVisible="{Binding !IsAccueil}" VerticalAlignment="Center">
+
+				<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+					<!-- Boutons d'action (1ère colonne) -->
+					<StackPanel Grid.Column="0" Spacing="25" Margin="10,0,10,0"
+								VerticalAlignment="Center" HorizontalAlignment="Center">
+
+						<!-- Bouton exporter/imprimer -->
+						<Button Width="225" Height="40"
+								HorizontalContentAlignment="Center"
+								Click="btn_ImpressionExport_Click">
+							<StackPanel Orientation="Horizontal" >
+								<!-- L'icône -->
+								<Image Source="/Assets/Exporter.png"
+									   Width="32" Height="32"
+									   VerticalAlignment="Center"/>
+								<!-- Le texte -->
+								<TextBlock Text="Exporter / Imprimer"
+										   VerticalAlignment="Center"
+										   Margin="7"/>
+								<!-- L'icône #2 -->
+								<Image Source="/Assets/Imprimer.png"
+									   Width="32" Height="32"
+									   VerticalAlignment="Center"/>
+							</StackPanel>
+						</Button>
+
+						<!-- Bouton retour accueil -->
+						<Button Width="225" Height="40"
+								HorizontalContentAlignment="Center"
+								Click="btn_RetourAccueil_Click">
+							<StackPanel Orientation="Horizontal" >
+								<Image Source="/Assets/Retour_Accueil.png"
+									   Width="33" Height="33"
+									   VerticalAlignment="Center"/>
+								<TextBlock Text="Retour à l'accueil"
+										   VerticalAlignment="Center"
+										   Margin="7"/>
+							</StackPanel>
+						</Button>
+					</StackPanel>
+
+					<!-- Boutons de recherche (2e colonne) -->
+					<StackPanel Grid.Column="1" Spacing="25" Margin="10,0,10,0"
+								VerticalAlignment="Center" HorizontalAlignment="Center">
+
+						<!-- Bouton rechercher avec les filtres -->
+						<Button Width="225" Height="40"
+								HorizontalContentAlignment="Center"
+								Command="{Binding RechercherCommand}">
+							<StackPanel Orientation="Horizontal" >
+								<Image Source="/Assets/Rechercher.png"
+									   Width="33" Height="33"
+									   VerticalAlignment="Center"/>
+								<TextBlock Text="Rechercher avec les filtres"
+										   VerticalAlignment="Center"
+										   Margin="2"/>
+							</StackPanel>
+						</Button>
+
+						<!-- Bouton annuler les filtres -->
+						<Button Width="225" Height="40"
+								HorizontalContentAlignment="Center"
+								Click="btn_AnnulerFiltres_Click">
+							<StackPanel Orientation="Horizontal" >
+								<Image Source="/Assets/Annuler_les_filtres.png"
+									   Width="33" Height="33"
+									   VerticalAlignment="Center"/>
+								<TextBlock Text="Annuler les filtres"
+										   VerticalAlignment="Center"
+										   Margin="7"/>
+							</StackPanel>
+						</Button>
+					</StackPanel>
+				</StackPanel>
+
+				<!-- Filtres (Checkboxes, 3e colonne) -->
+				<Border Grid.Column="2"
+						Background="White" BoxShadow="2 2 25 0 #C0000000"
+						Width="360" Height="140"
+						BorderBrush="Black" BorderThickness="2" CornerRadius="15">
+					<StackPanel HorizontalAlignment="Center">
+						<StackPanel Orientation="Horizontal" Margin="10,0,0,-2">
+							<Image Source="/Assets/Filtres.png"
+								   Width="33" Height="33" Margin="-12,0,3,0"/>
+							<TextBlock Text="Filtres :" Foreground="Black" VerticalAlignment="Center"/>
+							<CheckBox Content="Tableau" IsChecked="{Binding FiltreTableau}"
+									  Foreground="Black" Margin="5,0,0,0" CornerRadius="5"/>
+						</StackPanel>
+
+						<CheckBox Content="Description" IsChecked="{Binding FiltreDescription}"
+								  Foreground="Black" Margin="87,0,0,-2" CornerRadius="5"/>
+
+						<CheckBox Content="Mnémonique" IsChecked="{Binding FiltreMnemonique}"
+								  Margin="87,0,0,5" CornerRadius="5"/>
+
+						<StackPanel Orientation="Horizontal"  Height="30">
+							<TextBlock Text="Mots-clés: " VerticalAlignment="Center" Margin="17,0,0,0"/>
+							<TextBox Text="{Binding MotsCles}"
+									 Width="250" Margin="2,0,0,0" CornerRadius="8"/>
+						</StackPanel>
+					</StackPanel>
+				</Border>
+
+				<!-- Menus Déroulants (ComboBoxk, 4e colonne) -->
+				<StackPanel Grid.Column="3"
+							HorizontalAlignment="Right" VerticalAlignment="Center"
+							Spacing="30" Margin="0,0,10,0">
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Année début : " Foreground="White" VerticalAlignment="Center" Margin="30,0,0,0"/>
+						<!-- Année début -->
+						<ComboBox Width="100"
+								  IsEditable="True"
+								  Text="{Binding AnneeDebut}"
+								  Background="White"
+								  Margin="5,0,0,0"/>
+						<TextBlock Text="Fin : " Foreground="White" VerticalAlignment="Center" Margin="5,0,0,0"/>
+						<!-- Année fin -->
+						<ComboBox Width="100"
+								  IsEditable="True"
+								  Text="{Binding AnneeFin}"
+								  Background="White"/>
+
+					</StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Trimestre début : " Foreground="White" VerticalAlignment="Center" Margin="10,0,0,0"/>
+						<ComboBox Width="100" IsEditable="True" Text="{Binding TrimestreDebut}"
+								  Background="White" CornerRadius="8">
+							<ComboBoxItem>I</ComboBoxItem>
+							<ComboBoxItem>II</ComboBoxItem>
+							<ComboBoxItem>III</ComboBoxItem>
+							<ComboBoxItem>IV</ComboBoxItem>
+						</ComboBox>
+						<TextBlock Text="Fin : " Foreground="White" VerticalAlignment="Center" Margin="5,0,0,0"/>
+						<ComboBox Width="100" IsEditable="True" Text="{Binding TrimestreFin}"
+								  Background="White" CornerRadius="8">
+							<ComboBoxItem>I</ComboBoxItem>
+							<ComboBoxItem>II</ComboBoxItem>
+							<ComboBoxItem>III</ComboBoxItem>
+							<ComboBoxItem>IV</ComboBoxItem>
+						</ComboBox>
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<!-- FOOTER BLEU - partie sidebar
+		<Border Grid.Row="2" Grid.Column="1" Background="#4A6A8A"/> -->
+	</Grid>
+</Window>

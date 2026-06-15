@@ -1,0 +1,43 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger: 
+  branches:
+    include:
+      - dev
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  BuildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET SDK from global.json'
+  inputs:
+    packageType: 'sdk'
+    useGlobalJson: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore root solution'
+  inputs:
+    command: 'restore'
+    projects: 'EF_Client_App/EF_Client_App.sln'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build root solution'
+  inputs:
+    command: 'build'
+    projects: 'EF_Client_App/EF_Client_App.sln'
+    arguments: '--configuration $(BuildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests'
+  inputs:
+    command: 'test'
+    projects: 'EF_Client_App/EF_Client_App.sln'
+    arguments: '--configuration $(BuildConfiguration) --no-build'
+    publishTestResults: true

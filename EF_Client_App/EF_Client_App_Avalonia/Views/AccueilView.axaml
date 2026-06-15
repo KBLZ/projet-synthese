@@ -1,0 +1,134 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="AvaloniaApplication1.Views.AccueilView">
+
+	<!-- Cet section annule le style par défaut définit et permet de mettre les "icones" comme bouton -->
+	<UserControl.Styles>
+		<Style Selector="Button.iconeSeulement">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="Template">
+				<ControlTemplate>
+					<ContentPresenter Content="{TemplateBinding Content}"
+									  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+
+		<Style Selector="Button.iconeSeulement:pointerover Image">
+			<Setter Property="Effect">
+				<Setter.Value>
+					<DropShadowEffect BlurRadius="25"
+									  Color="#8BA4BC"
+									  Opacity="1"
+									  OffsetX="0"
+									  OffsetY="0" />
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style Selector="Button.iconeSeulement:pointerover">
+			<Setter Property="Opacity" Value="0.80"/>
+			<Setter Property="RenderTransform">
+				<ScaleTransform ScaleX="1.075" ScaleY="1.075"/>
+			</Setter>
+			<Setter Property="Transitions">
+				<Transitions>
+					<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15"/>
+				</Transitions>
+			</Setter>
+		</Style>
+
+		<Style Selector="Button.iconeSeulement">
+			<Setter Property="Transitions">
+				<Transitions>
+					<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15"/>
+				</Transitions>
+			</Setter>
+		</Style>
+
+
+	</UserControl.Styles>
+
+
+	<Grid RowDefinitions="*, *, *, *" ColumnDefinitions="*, *, *,*" >
+		<!-- Bouton prévision du Québec -->
+		<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+			<Button Classes="iconeSeulement" VerticalAlignment="Center"
+					Click="btn_PrevQc_Click">
+				<Image Source="/Assets/IconePrevQc.png"
+					   MinWidth="110" MinHeight="110"
+					   MaxWidth="400" MaxHeight="400"
+					   Stretch="Uniform"/>
+			</Button>
+			<Image Source="/Assets/Icone_Quebec.png"
+				   Margin="-50,0,25,0"
+				   MinWidth="9" MinHeight="6"
+				   MaxWidth="30" MaxHeight="20"
+				   Stretch="Uniform"/>
+			<TextBlock Text="Prévisions du Québec"
+					   VerticalAlignment="Center"
+					   FontSize="20"/>
+		</StackPanel>
+
+		<!-- Bouton comparaison des prévisions du Québec -->
+		<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+			<Button Classes="iconeSeulement" VerticalAlignment="Center" Click="btn_CompQc_Click">
+				<Image Source="/Assets/IconeCompQc.png"
+					   MinWidth="110" MinHeight="110"
+					   MaxWidth="400" MaxHeight="400"
+					   Stretch="Uniform"/>
+			</Button>
+			<Image Source="/Assets/Icone_Quebec.png"
+				   Margin="-50,0,25,0"
+				   MinWidth="9" MinHeight="6"
+				   MaxWidth="30" MaxHeight="20"
+				   Stretch="Uniform"/>
+			<TextBlock Text="Comparaison des prévisions du Québec"
+					   VerticalAlignment="Center"
+					   FontSize="20"/>
+		</StackPanel>
+
+		<!-- Bouton prévision du Canada -->
+		<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" >
+			<Button Classes="iconeSeulement" VerticalAlignment="Center" Click="btn_PrevCan_Click">
+				<Image Source="/Assets/IconePrevCan.png"
+					   MinWidth="110" MinHeight="110"
+					   MaxWidth="400" MaxHeight="400"
+					   Stretch="Uniform"/>
+			</Button>
+			<Image Source="/Assets/Icone_Canada.png"
+				   Margin="-50,0,25,0"
+				   MinWidth="9" MinHeight="6"
+				   MaxWidth="30" MaxHeight="20"
+				   Stretch="Uniform"/>
+			<TextBlock Text="Prévisions du Canada"
+					   VerticalAlignment="Center"
+					   FontSize="20"/>
+		</StackPanel>
+
+		<!-- Bouton comparaison des prévisons du Canada -->
+		<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" >
+			<Button Classes="iconeSeulement" VerticalAlignment="Center" Click="btn_CompCan_Click">
+				<Image Source="/Assets/IconeCompCan.png"
+					   MinWidth="110" MinHeight="110"
+					   MaxWidth="400" MaxHeight="400"
+					   Stretch="Uniform"/>
+			</Button>
+			<Image Source="/Assets/Icone_Canada.png"
+				   Margin="-50,0,25,0"
+				   MinWidth="9" MinHeight="6"
+				   MaxWidth="30" MaxHeight="20"
+				   Stretch="Uniform"/>
+			<TextBlock Text="Comparaison des prévisions du Canada"
+					   VerticalAlignment="Center"
+					   FontSize="20"/>
+		</StackPanel>
+
+	</Grid>
+</UserControl>

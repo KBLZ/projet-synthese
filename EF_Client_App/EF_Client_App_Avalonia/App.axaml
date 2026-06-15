@@ -1,0 +1,113 @@
+<Application xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 x:Class="AvaloniaApplication1.App"
+			 xmlns:local="using:AvaloniaApplication1"
+			 RequestedThemeVariant="Default">
+
+	<Application.DataTemplates>
+		<local:ViewLocator/>
+	</Application.DataTemplates>
+
+	<Application.Resources>
+        <!-- Déclaration de la police personnalisée -->
+        <FontFamily x:Key="PoliceMonotypeCorsiva">avares://EF_Client_UI_Avalonia/Assets/Fonts/#Monotype Corsiva</FontFamily>
+    </Application.Resources>
+
+	<Application.Styles>
+		<FluentTheme />
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+
+		<!-- Style global pour tous les boutons -->
+		<Style Selector="Button">
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							CornerRadius="15"
+							Height="40">
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+										  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+										  Content="{TemplateBinding Content}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter>
+			<Setter Property="Background">
+				<LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+					<GradientStop Color="#FFF3F3F3" Offset="0"/>
+					<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+					<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+					<GradientStop Color="#FF708ACA" Offset="1"/>
+				</LinearGradientBrush>
+			</Setter>
+		</Style>
+
+		<Style Selector="CheckBox /template/ Border#NormalRectangle">
+			<Setter Property="Background" Value="White"/>
+			<Setter Property="BorderBrush" Value="Black"/>
+		</Style>
+
+		<Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
+			<Setter Property="Background" Value="#4A6A8A"/>
+			<Setter Property="BorderBrush" Value="#4A6A8A"/>
+		</Style>
+
+		<Style Selector="TextBox:focus /template/ Border">
+			<Setter Property="BorderBrush" Value="#4A6A8A"/>
+		</Style>
+
+		<Style Selector="ComboBox:focus /template/ Border">
+			<Setter Property="BorderBrush" Value="#4A6A8A"/>
+		</Style>
+
+		<Style Selector="TextBox:pointerover /template/ Border">
+			<Setter Property="BorderBrush" Value="#4A6A8A"/>
+		</Style>
+
+		<Style Selector="ComboBox:pointerover /template/ Border">
+			<Setter Property="BorderBrush" Value="#4A6A8A"/>
+		</Style>
+
+
+		<Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
+			<Setter Property="Background" Value="#8BA4BC"/>
+			<Setter Property="TextBlock.Foreground" Value="White"/>
+		</Style>
+
+		<Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
+			<Setter Property="Background" Value="#8BA4BC"/>
+			<Setter Property="TextBlock.Foreground" Value="White"/>
+		</Style>
+
+		<Style Selector="ComboBoxItem:focus /template/ ContentPresenter">
+			<Setter Property="Background" Value="#8BA4BC"/>
+			<Setter Property="TextBlock.Foreground" Value="White"/>
+		</Style>
+
+		<Style Selector="TextBox">
+			<Setter Property="SelectionBrush" Value="#4A6A8A"/>
+		</Style>
+
+		<Style Selector="TextBox">
+			<Setter Property="SelectionBrush" Value="#4A6A8A"/>
+			<Setter Property="SelectionForegroundBrush" Value="White"/>
+		</Style>
+
+		<Style Selector="TextBox">
+			<Setter Property="SelectionBrush" Value="#4A6A8A"/>
+			<Setter Property="SelectionForegroundBrush" Value="White"/>
+		</Style>
+
+		<Style Selector="Button:pointerover /template/ Border">
+			<Setter Property="Background">
+				<LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+					<GradientStop Color="#FF708ACA" Offset="0"/>
+					<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+					<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+					<GradientStop Color="#FFF3F3F3" Offset="1"/>
+				</LinearGradientBrush>
+			</Setter>
+		</Style>
+
+	</Application.Styles>
+</Application>

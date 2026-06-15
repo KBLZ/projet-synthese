@@ -1,0 +1,27 @@
+services:
+
+  oracle:
+
+    image: gvenzl/oracle-free
+
+    container_name: oracle-free
+
+    ports:
+
+      - "1521:1521"
+
+    environment:
+
+      ORACLE_PASSWORD: Oracle123
+
+      TZ: America/Toronto
+
+    volumes:
+
+      - oracle-data:/opt/oracle/oradata
+
+
+
+volumes:
+
+  oracle-data:
