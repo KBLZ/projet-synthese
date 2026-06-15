@@ -21,7 +21,7 @@ Le client dispose déjà d'une base de données Oracle qui sert de structure d'i
 Une fois les résultats affichés dans l'interface, l'utilisateur pourra exporter les données dans plusieurs formats JSON, CSV, PDF, Excel, ou encore l'imprimer directement.
 
 ### Technologies utilisées
-Le développement est réalisé en C# sur .NET 9 avec WPF pour la couche de présentation et Entity Framework (EF) pour l'ORM. La base de données est Oracle, qui joue un rôle d'indexation, tandis que les données brutes sont stockées dans des fichiers JSON et CSV. Le serveur de bases de données est opéré dans un conteneur Docker.
+Le développement est réalisé en C# sur .NET 9 avec Avalonia pour la couche de présentation et Entity Framework (EF) pour l'ORM. La base de données est Oracle, qui joue un rôle d'indexation, tandis que les données brutes sont stockées dans des fichiers JSON et CSV. Le serveur de bases de données est opéré dans un conteneur Docker.
 
 Le backend est structuré selon une architecture n-tier avec le patron Repository, ce qui permet de bien séparer la logique métier, l'accès aux données et l'exposition de l'API consommée par le client WPF. ( Wow PiFou )
 
